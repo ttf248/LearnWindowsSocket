@@ -221,11 +221,16 @@ UINT CServerDlg::ThreadProc(LPVOID pParam)
 		goto __Error_End;
 	}
 
+    pThis->ShowMsg(_T("监听端口：9527 成功！"));
+    pThis->ShowMsg(_T("等待客户端接入..."));
+
 	int iLen = sizeof(sockaddr_in);
 	pThis->m_SockClient = accept(pThis->m_SockListen, (struct sockaddr *)&clientAddr , &iLen);
 	if (pThis->m_SockClient == INVALID_SOCKET) {
 		goto __Error_End;
 	}
+
+    pThis->ShowMsg(_T("客户端成功连接，可以开始通讯！"));
 
 	while(TRUE) {
 		if ( pThis->SOCKET_Select(pThis->m_SockClient) ) {
