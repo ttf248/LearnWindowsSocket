@@ -332,6 +332,9 @@ UINT CServerDlg::ThreadProc(LPVOID pParam)
 
 	pThis->PostAccept(m_SockListen);
 
+    pThis->ShowMsg(_T("监听端口：9527 成功！"));
+    pThis->ShowMsg(_T("等待客户端接入..."));
+
 	while (TRUE) {
 		dwIndex = WSAWaitForMultipleEvents(m_dwTotalEvent, m_ArrEvent, FALSE, 100, FALSE);
 		if (dwIndex == WSA_WAIT_TIMEOUT || dwIndex == WSA_WAIT_IO_COMPLETION) {
