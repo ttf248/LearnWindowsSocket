@@ -211,6 +211,9 @@ UINT CClientDlg::ThreadProc(LPVOID pParam)
 		AfxMessageBox(_T("连接失败，请重试！"));
 		goto __Error_End;
 	}
+
+    pThis->ShowMsg(_T("成功接入服务端..."));
+
 	while(TRUE) {
 		if ( pThis->SOCKET_Select(pThis->m_Socket) ) {
 			TCHAR szBuf[MAX_BUF_SIZE] = {0};
@@ -224,7 +227,7 @@ UINT CClientDlg::ThreadProc(LPVOID pParam)
 				break;
 			}
 		}
-		Sleep(500);
+		Sleep(1);
 	}
 
 __Error_End:
