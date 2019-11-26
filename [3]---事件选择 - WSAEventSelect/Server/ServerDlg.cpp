@@ -202,6 +202,7 @@ UINT CServerDlg::ThreadProc(LPVOID pParam)
 
 	WSAEVENT m_ListenEvent = WSACreateEvent();
 
+    // 创建 event 负责处理 accept 事件
 	WSAEventSelect(pThis->m_SockListen, m_ListenEvent, FD_ACCEPT | FD_CLOSE);
 
 	if( listen(pThis->m_SockListen, SOMAXCONN) == SOCKET_ERROR ) {
@@ -232,6 +233,8 @@ UINT CServerDlg::ThreadProc(LPVOID pParam)
 			if (pThis->m_SockClient == INVALID_SOCKET) {
 				continue;
 			}
+
+            // 创建事件负责处理 读写事件
 			WSAEVENT newEvent = WSACreateEvent();
 			WSAEventSelect(pThis->m_SockClient, newEvent, FD_READ | FD_WRITE | FD_CLOSE);
 
