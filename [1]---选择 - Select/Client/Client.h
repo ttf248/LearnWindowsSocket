@@ -15,7 +15,7 @@
 // See Client.cpp for the implementation of this class
 //
 
-class CClientApp : public CWinAppEx
+class CClientApp : public CWinApp
 {
 public:
 	CClientApp();

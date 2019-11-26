@@ -13,7 +13,7 @@
 
 // CClientApp
 
-BEGIN_MESSAGE_MAP(CClientApp, CWinAppEx)
+BEGIN_MESSAGE_MAP(CClientApp, CWinApp)
 	ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
@@ -46,7 +46,7 @@ BOOL CClientApp::InitInstance()
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
-	CWinAppEx::InitInstance();
+    CWinApp::InitInstance();
 
 	AfxEnableControlContainer();
 
