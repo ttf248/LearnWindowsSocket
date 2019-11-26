@@ -209,6 +209,9 @@ UINT CServerDlg::ThreadProc(LPVOID pParam)
 		goto __Error_End;
 	}
 
+    pThis->ShowMsg(_T("监听端口：9527 成功！"));
+    pThis->ShowMsg(_T("等待客户端接入..."));
+
 	ArrSocket[dwTotal] = pThis->m_SockListen;
 	ArrEvent[dwTotal] = m_ListenEvent;
 	++dwTotal;
