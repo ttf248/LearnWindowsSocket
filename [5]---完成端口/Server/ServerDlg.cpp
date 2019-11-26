@@ -165,6 +165,9 @@ void CServerDlg::OnBnClickedBtnStart()
 {
 	m_IocpServer.AssociateWnd(this);
 	m_IocpServer.StartServer(9527);
+
+    this->ShowMsg(_T("监听端口：9527 成功！"));
+    this->ShowMsg(_T("等待客户端接入..."));
 }
 
 void CServerDlg::OnBnClickedBtnSend()
