@@ -245,7 +245,7 @@ UINT CServerDlg::ThreadProc(LPVOID pParam)
 				break;
 			}
 		}
-		Sleep(500);
+		Sleep(1);
 	}
 
 __Error_End:
